@@ -25,9 +25,9 @@ source 4_route.tcl
 ```
 
 ```tcl
-5_postroute_opt.tcl
+source 5_postroute_opt.tcl
 ```
 
 ```tcl
-6_report.tcl
+source 6_report.tcl
 ```

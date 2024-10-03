@@ -8,3 +8,7 @@
 rc_model.bin
 timingReports/
 .cadence/
+SPEF/
+*.final.v
+*.final.def
+*.rpt

@@ -1,0 +1,10 @@
+*.log
+*.logv
+*.cmd
+*.log*
+*.cmd*
+*.logv*
+
+rc_model.bin
+timingReports/
+.cadence/

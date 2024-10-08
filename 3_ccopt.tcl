@@ -11,27 +11,27 @@ set_interactive_constraint_modes [all_constraint_modes -active]
 set_clock_uncertainty 0 [all_clocks]
 setOptMode -addInstancePrefix ccOPT_
 setAnalysisMode -analysisType onChipVariation \
--cppr both
+    -cppr both
 if [dbGet -p head.routeTypes.name top] {
 } else {
-create_route_type -name top \
-    -preferred_routing_layer_effort medium \
-    -top_preferred_layer $vars(CCOpt,top_top) \
-    -bottom_preferred_layer $vars(CCOpt,top_bottom)
+    create_route_type -name top \
+        -preferred_routing_layer_effort medium \
+        -top_preferred_layer $vars(CCOpt,top_top) \
+        -bottom_preferred_layer $vars(CCOpt,top_bottom)
 }
 if [dbGet -p head.routeTypes.name trunk] {
 } else {
-create_route_type -name  trunk \
-    -preferred_routing_layer_effort medium \
-    -top_preferred_layer $vars(CCOpt,trunk_top) \
-    -bottom_preferred_layer $vars(CCOpt,trunk_bottom)
+    create_route_type -name  trunk \
+        -preferred_routing_layer_effort medium \
+        -top_preferred_layer $vars(CCOpt,trunk_top) \
+        -bottom_preferred_layer $vars(CCOpt,trunk_bottom)
 }
 if [dbGet -p head.routeTypes.name leaf] {
 } else {
-create_route_type -name leaf \
-    -preferred_routing_layer_effort medium \
-    -top_preferred_layer $vars(CCOpt,leaf_top) \
-    -bottom_preferred_layer $vars(CCOpt,leaf_bottom)
+    create_route_type -name leaf \
+        -preferred_routing_layer_effort medium \
+        -top_preferred_layer $vars(CCOpt,leaf_top) \
+        -bottom_preferred_layer $vars(CCOpt,leaf_bottom)
 }
 set_ccopt_property route_type -net_type top top
 set_ccopt_property route_type -net_type trunk trunk
@@ -46,4 +46,9 @@ set_ccopt_property use_inverters true
 create_ccopt_clock_tree_spec -immediate
 set_ccopt_effort -high
 
+# To run CCOpt to perform CTS with Clock Concurrent Optimization
 ccopt_design
+# To run CCOpt-CTS to perform CTS with global skew balancing
+# ccopt_design -cts
+
+saveDesign 3_ccopt.enc

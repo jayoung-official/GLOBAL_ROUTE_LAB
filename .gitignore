@@ -12,3 +12,5 @@ SPEF/
 *.final.v
 *.final.def
 *.rpt
+*.enc.dat/
+*.enc

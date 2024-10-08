@@ -1,15 +1,16 @@
-set SDC_FILES "NETLIST_GCD/gcd.sdc"
-set VERILOG_FILES "NETLIST_GCD/gcd.netlist.v"
+set SDC_FILES "NETLIST_AES/aes_cipher_top.sdc"
+set VERILOG_FILES "NETLIST_AES/aes_cipher_top.netlist.v"
 set LEF_FILES ""
 set LIB_FILES ""
 set QX_TECH_FILE "PDK_ASAP7/qrc/qrcTechFile_typ03_scaled4xV06.tch"
 set vars(LibUnit,Time) 1ps
 set vars(LibUnit,Cap) 1fF
+set FLOORPLAN_DENSITY 0.7
 
 # Search LEF_FILES
 puts "Searching LEF files..."
-append LEF_FILES "PDK_ASAP7/techlef/asap7_tech_4x_201209.lef.gz"
-foreach fileName [glob -nocomplain -d "PDK_ASAP7/lef" "*.gz"] {
+append LEF_FILES "PDK_ASAP7/techlef/asap7_tech_4x_201209.lef"
+foreach fileName [glob -nocomplain -d "PDK_ASAP7/lef" "*.lef"] {
     append LEF_FILES " $fileName"
 }
 
@@ -18,7 +19,6 @@ puts "Searching LIB files..."
 foreach fileName [glob -nocomplain -d "PDK_ASAP7/lib" "*.lib"] {
     append LIB_FILES " $fileName"
 }
-puts $LIB_FILES
 
 setLibraryUnit -time $vars(LibUnit,Time) -cap $vars(LibUnit,Cap)
 
@@ -57,3 +57,6 @@ init_design -setup typical_analysis_view -hold typical_analysis_view
 set_analysis_view \
     -setup typical_analysis_view \
     -hold typical_analysis_view
+
+setDesignMode -reset
+setDesignMode -process 7 -flowEffort standard -powerEffort high

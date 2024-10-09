@@ -12,7 +12,7 @@ results = []
 files = os.listdir(directory)
 
 # '.timing'으로 끝나는 모든 파일을 찾습니다.
-timing_files = [f for f in files if f.endswith('.timing')]
+timing_files = sorted([f for f in files if f.endswith('.timing')])
 
 for timing_file in timing_files:
     # 파일명에서 '.timing'을 제거하여 베이스 이름을 얻습니다.
@@ -45,7 +45,6 @@ for timing_file in timing_files:
             'Name': base_name,
             'WNS': numbers[0],
             'TNS': numbers[1],
-            '#VIO': numbers[2],
             'POWER': total_power
         })
     else:
@@ -55,7 +54,7 @@ for timing_file in timing_files:
 # 결과를 표로 출력합니다.
 if results:
     # 테이블 헤더를 정의합니다.
-    headers = ['Name', 'WNS', 'TNS', '#VIO', 'POWER']
+    headers = ['Name', 'WNS', 'TNS', 'POWER']
     
     # 각 열의 최대 너비를 계산합니다.
     col_widths = {header: len(header) for header in headers}

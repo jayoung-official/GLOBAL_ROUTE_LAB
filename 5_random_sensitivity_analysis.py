@@ -3,7 +3,7 @@ import subprocess
 
 INNOVUS_CMD = 'innovus'
 SCRIPT_FILE = '5_random_run.tcl'
-N_RUNS = 10
+N_RUNS = 5
 
 def run_script():
     try:

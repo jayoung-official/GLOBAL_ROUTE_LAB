@@ -13,4 +13,4 @@ def run_script():
         print(f"An error occurred: {e}")
 
 for _ in range(N_RUNS):
-	run_script()
+    run_script()

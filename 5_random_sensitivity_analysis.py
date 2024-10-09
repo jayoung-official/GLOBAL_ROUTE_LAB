@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 import subprocess
 
-INNOVUS_CMD = 'innovus'
-SCRIPT_FILE = '5_random_run.tcl'
 N_RUNS = 5
 
 def run_script():
     try:
-        result = subprocess.run(f'{INNOVUS_CMD} -files {SCRIPT_FILE}', shell=True)
+        result = subprocess.run('innovus -files 5_random_run.tcl', shell=True)
         if result.stderr:
             print("Error:")
             print(result.stderr)

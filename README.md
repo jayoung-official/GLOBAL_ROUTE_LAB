@@ -1,1 +1,3 @@
 # GLOBAL_ROUTE_LAB
+
+See `LAB_GUIDE.pdf`

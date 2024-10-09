@@ -12,7 +12,7 @@ results = []
 files = os.listdir(directory)
 
 # '.timing'으로 끝나는 모든 파일을 찾습니다.
-timing_files = [f for f in files if f.endswith('.timing')]
+timing_files = sorted([f for f in files if f.endswith('.timing')])
 
 for timing_file in timing_files:
     # 파일명에서 '.timing'을 제거하여 베이스 이름을 얻습니다.
